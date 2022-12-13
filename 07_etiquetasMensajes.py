@@ -8,7 +8,7 @@ def click():
 
 def mensaje():
     mensaje = "Hola, "+txtNombre.get()+", bienvenid@"
-    messagebox.showinfo("Mensaje", mensaje)
+    messagebox.showinfo("Mensaje", mensaje)  # showerror showinfo showwarning
 
 
 # creamos objeto de la clase Tk
