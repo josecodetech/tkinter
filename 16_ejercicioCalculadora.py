@@ -5,7 +5,7 @@ from tkinter import ttk, messagebox
 # creamos objeto de la clase Tk
 ventana = tk.Tk()
 # tamaño
-ancho = 400
+ancho = 420
 alto = 250
 tamaño = str(ancho)+"x"+str(alto)
 ventana.geometry(tamaño)
@@ -83,7 +83,7 @@ frm_inf.config(bg='gray')
 txt_resultado = ttk.Entry(frm_sup, font=(
     'arial', 22, 'bold'), state="readonly", textvariable=texto, justify=tk.RIGHT, width=24)
 txt_resultado.grid(row=0, column=0,
-                   ipadx=5, ipady=5, padx=5, pady=5)
+                   ipadx=5, ipady=5, padx=10, pady=5)
 btn_borrar = ttk.Button(frm_inf, text='Borrar', command=borrar, width=10)
 btn_borrar.grid(row=0, column=0, padx=5, pady=5)
 btn_dividir = ttk.Button(
