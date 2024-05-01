@@ -23,9 +23,10 @@ class RelojDigital:
         # variable estado cronometro
         self.cronometro_activo = False
     def iniciar_reloj(self):
-        hora_actual = time.strftime("%H:%M:%S")
-        self.lbl_hora.config(text=hora_actual)
-        self.lbl_hora.after(1000, self.iniciar_reloj)
+        if self.cronometro_activo==False:
+            hora_actual = time.strftime("%H:%M:%S")
+            self.lbl_hora.config(text=hora_actual)
+            self.lbl_hora.after(1000, self.iniciar_reloj)
     def iniciar_cronometro(self):
         self.tiempo_inicio = time.time()
         self.btn_iniciar_cronometro.config(state="disabled")
@@ -36,6 +37,7 @@ class RelojDigital:
         self.btn_iniciar_cronometro.config(state="normal")
         self.btn_detener_cronometro.config(state="disabled")
         self.cronometro_activo=False
+        self.iniciar_reloj()
     def actualizar_cronometro(self):
         if self.cronometro_activo:
             tiempo_transcurrido = time.time() - self.tiempo_inicio
@@ -49,6 +51,7 @@ class RelojDigital:
         hora_actual = time.strftime("%H:%M")
         if hora_actual == self.hora_alarma:
             messagebox.showinfo("Alarma", "Es la hora que indicastes")
+            self.btn_activar_alarma.config(state="disabled")
         else:
             self.ventana.after(60000, self.activar_alarma)
 if __name__ == "__main__":
